@@ -1,37 +1,13 @@
 @import "tailwindcss";
 
-html,
-body,
-#root {
-  height: 100%;
-}
-@import "tailwindcss";
-
+/* Base layout */
 html,
 body,
 #root {
   height: 100%;
 }
 
-/* Glass utility */
-.glass {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(18px);
-}
-
-.dark .glass {
-  background: rgba(15, 15, 15, 0.6);
-}
-
-@import "tailwindcss";
-
-html,
-body,
-#root {
-  height: 100%;
-}
-
-/* Glass */
+/* Glassmorphism utility */
 .glass {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(18px);
@@ -42,11 +18,17 @@ body,
   background: rgba(15, 15, 15, 0.6);
 }
 
-/* Gradient orbs */
+/* Gradient orbs animation */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-30px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .orb {
@@ -55,4 +37,5 @@ body,
   filter: blur(80px);
   opacity: 0.5;
   animation: float 12s ease-in-out infinite;
+  pointer-events: none;
 }

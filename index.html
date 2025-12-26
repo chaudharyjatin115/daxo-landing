@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#6366f1" />
+<meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,6 +28,22 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://daxo-dashboard.web.app" />
+    <script>
+  (function () {
+    try {
+      const theme = localStorage.getItem("theme");
+      if (
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch (_) {}
+  })();
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
