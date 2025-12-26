@@ -21,4 +21,3 @@ export function useDarkMode() {
 
   return [dark, setDark];
 }
-

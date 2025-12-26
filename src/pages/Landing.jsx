@@ -1,7 +1,7 @@
+
 import Logo from "../components/Logo";
 import DarkToggle from "../components/DarkToggle";
 import { useDarkMode } from "../hooks/useDarkMode";
-import { Link } from "react-router-dom";
 
 export default function Landing() {
   const [dark, setDark] = useDarkMode();
@@ -9,93 +9,150 @@ export default function Landing() {
   return (
     <div
       className="
-        min-h-screen
+        relative min-h-screen overflow-hidden
         bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
-        from-white via-indigo-50 to-indigo-100
+        from-white via-indigo-50 to-sky-100
         dark:bg-gradient-to-br dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950
-        text-neutral-900 dark:text-neutral-100
-        transition-colors
+        text-neutral-900 dark:text-neutral-100 transition-colors
       "
     >
+      {/* GRADIENT ORBS */}
+      <div className="orb w-72 h-72 bg-indigo-400 top-[-6rem] left-[-6rem]" />
+      <div className="orb w-96 h-96 bg-violet-400 top-[20%] right-[-8rem]" />
+      <div className="orb w-80 h-80 bg-sky-400 bottom-[-6rem] left-[30%]" />
+
       {/* NAVBAR */}
-      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+      <header className="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Logo size={36} />
+          <Logo size={38} />
           <span className="font-semibold text-lg">Daxo</span>
         </div>
 
         <div className="flex items-center gap-4">
           <DarkToggle dark={dark} setDark={setDark} />
-
-          <Link
-            to="/login"
+          <a
+            href="https://daxo-dashboard.web.app/login"
             className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
           >
             Sign in
-          </Link>
+          </a>
         </div>
       </header>
 
       {/* HERO */}
-      <main className="max-w-6xl mx-auto px-6 py-24 grid gap-20">
-        <section className="max-w-2xl">
+      <main className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-20 items-center">
+        {/* LEFT */}
+        <section>
+          <p className="mb-3 text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-400">
+            Built for small businesses & creators
+          </p>
+
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Manage your business
+            Run your business
             <br />
-            <span className="text-indigo-600 dark:text-indigo-400">
-              without stress
+            <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 bg-clip-text text-transparent">
+              without chaos
             </span>
           </h1>
 
           <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
-            Orders, payments, branding — all in one calm, modern dashboard built
-            for small businesses.
+            Daxo helps you manage orders, track payments, and build your brand —
+            all from one clean, modern dashboard.
           </p>
 
           <div className="mt-10 flex items-center gap-4">
-            <Link
-              to="/signup"
+            <a
+              href="https://daxo-dashboard.web.app/signup"
               className="
                 px-7 py-3 rounded-2xl
-                bg-indigo-600 text-white font-medium
-                hover:bg-indigo-700 transition
-                shadow-lg shadow-indigo-600/25
+                bg-gradient-to-r from-indigo-500 to-violet-500
+                text-white font-medium
+                shadow-lg shadow-indigo-500/30
+                hover:opacity-90 transition
               "
             >
-              Create free account
-            </Link>
+              Get started for free
+            </a>
 
             <a
-              href="#features"
+              href="#preview"
               className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:underline"
             >
-              Learn more
+              Preview dashboard
             </a>
           </div>
         </section>
 
-        {/* FEATURES */}
-        <section
-          id="features"
-          className="grid md:grid-cols-3 gap-8"
-        >
-          <Feature
-            title="Orders"
-            desc="Track pending, sent, and completed orders effortlessly."
-          />
-          <Feature
-            title="Payments"
-            desc="Instant clarity on paid and unpaid invoices."
-          />
-          <Feature
-            title="Branding"
-            desc="Logo, colors, and identity that feel truly yours."
-          />
+        {/* RIGHT */}
+        <section id="preview">
+          <p className="mb-4 text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-400">
+            Your business at a glance
+          </p>
+
+          <div className="glass rounded-3xl border border-white/50 dark:border-neutral-800 shadow-2xl p-4">
+            <div className="rounded-2xl bg-white dark:bg-neutral-900 overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+
+              <div className="p-5 space-y-4">
+                <div className="h-4 w-1/3 rounded bg-indigo-200 dark:bg-indigo-500/30" />
+
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="h-20 rounded-xl bg-indigo-100 dark:bg-neutral-800" />
+                  <div className="h-20 rounded-xl bg-violet-100 dark:bg-neutral-800" />
+                  <div className="h-20 rounded-xl bg-sky-100 dark:bg-neutral-800" />
+                </div>
+
+                <div className="space-y-2">
+                  <div className="h-3 w-full rounded bg-neutral-200 dark:bg-neutral-700" />
+                  <div className="h-3 w-5/6 rounded bg-neutral-200 dark:bg-neutral-700" />
+                  <div className="h-3 w-4/6 rounded bg-neutral-200 dark:bg-neutral-700" />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 
+      {/* FEATURES */}
+      <section
+        id="features"
+        className="relative z-10 max-w-6xl mx-auto px-6 pb-24 space-y-8"
+      >
+        <div>
+          <p className="text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-400">
+            Everything in one place
+          </p>
+          <h2 className="mt-1 text-2xl md:text-3xl font-bold">
+            Focus on work that actually grows your business
+          </h2>
+          <p className="mt-2 text-neutral-600 dark:text-neutral-400 max-w-xl">
+            Stop juggling spreadsheets, messages, and notes. Daxo keeps your
+            operations simple, organized, and stress-free.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <Feature
+            title="Orders"
+            desc="Always know what’s pending, sent, or completed — no follow-ups needed."
+          />
+          <Feature
+            title="Payments"
+            desc="Instant visibility into paid and unpaid invoices."
+          />
+          <Feature
+            title="Branding"
+            desc="Present your business professionally with your own identity."
+          />
+        </div>
+      </section>
+
       {/* FOOTER */}
-      <footer className="border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 text-center text-sm text-neutral-500">
+      <footer className="relative z-10 border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 text-center text-sm text-neutral-500">
         © 2025 Daxo. Built with care.
       </footer>
     </div>
