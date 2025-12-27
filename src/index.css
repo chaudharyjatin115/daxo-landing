@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* REQUIRED for Tailwind v4 dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Base layout */
 html,
 body,
@@ -39,3 +42,19 @@ body,
   animation: float 12s ease-in-out infinite;
   pointer-events: none;
 }
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  background-color: white;
+}
+
+.dark html,
+.dark body {
+  background-color: #020617;
+}
+

@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- theme init MUST be first -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("theme");
+          const d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (t === "dark" || (!t && d)) {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6366f1" />
-<meta name="color-scheme" content="light dark" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
 
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Daxo – Simple business dashboard</title>
 
-    <!-- SEO -->
     <meta
       name="description"
       content="Daxo helps small businesses manage orders, payments, and branding in one calm, modern dashboard."
     />
-    <meta name="keywords" content="business dashboard, orders, payments, invoicing, small business" />
+    <meta
+      name="keywords"
+      content="business dashboard, orders, payments, invoicing, small business"
+    />
     <meta name="author" content="Daxo" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Daxo – Simple business dashboard" />
     <meta
       property="og:description"
@@ -28,40 +42,25 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://daxo-dashboard.web.app" />
-    <script>
-  (function () {
-    try {
-      const theme = localStorage.getItem("theme");
-      if (
-        theme === "dark" ||
-        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Daxo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Daxo is a modern business dashboard for managing orders, payments, and branding.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "url": "https://daxo-dashboard.web.app"
       }
-    } catch (_) {}
-  })();
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Daxo",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "description": "Daxo is a modern business dashboard for managing orders, payments, and branding.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "url": "https://daxo-dashboard.web.app"
-}
-</script>
-
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
