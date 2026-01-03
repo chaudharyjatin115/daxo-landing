@@ -31,7 +31,7 @@ export default function Landing() {
         <div className="flex items-center gap-4">
           <DarkToggle dark={dark} setDark={setDark} />
           <a
-            href="https://daxo-dashboard.web.app/login"
+            href="https://https://daxo-dashboard-fa691.web.app/login"
             className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
           >
             Sign in
@@ -62,7 +62,7 @@ export default function Landing() {
 
           <div className="mt-10 flex items-center gap-4">
             <a
-              href="https://daxo-dashboard.web.app/signup"
+              href="https://daxo-dashboard-fa691.web.app/signup"
               className="
                 px-7 py-3 rounded-2xl
                 bg-gradient-to-r from-indigo-500 to-violet-500
